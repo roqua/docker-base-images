@@ -9,7 +9,7 @@ RUN cd /tmp && \
 
 RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 
-RUN apt-get update && apt-get install -y nodejs && apt-get upgrade -y && apt-get autoremove -y && apt-get clean -y
+RUN apt-get update && apt-get install -y nodejs net-tools && apt-get upgrade -y && apt-get autoremove -y && apt-get clean -y
 
 RUN mkdir -p /app
 WORKDIR /app

@@ -26,7 +26,8 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     libsqlite3-dev \
     pkg-config \
-    libssh2-1-dev
+    libssh2-1-dev \
+    net-tools
 
 RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | apt-key add -
 
