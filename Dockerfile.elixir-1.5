@@ -16,3 +16,5 @@ WORKDIR /app
 
 RUN mix local.hex --force && \
     mix local.rebar --force
+
+ADD test_load_balancer_status /usr/local/sbin
