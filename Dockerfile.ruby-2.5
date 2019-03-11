@@ -1,4 +1,4 @@
-FROM ruby:2.5-slim
+FROM ruby:2.5
 
 ENV LANG C.UTF-8
 ENV PHANTOM_VERSION=phantomjs-2.1.1-linux-x86_64
@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     ssh \
     git \
-    apt-transport-https\
     ca-certificates \
     gnupg2 \
     software-properties-common \
