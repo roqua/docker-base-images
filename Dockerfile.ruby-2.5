@@ -1,4 +1,4 @@
-FROM ruby:2.5
+FROM ruby:2.5-slim-stretch
 
 ENV LANG C.UTF-8
 ENV PHANTOM_VERSION=phantomjs-2.1.1-linux-x86_64
@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     gnupg2 \
     software-properties-common \
-    libmariadbclient-dev \
     libpq-dev \
     libsqlite3-dev \
     pkg-config \
@@ -48,7 +47,10 @@ RUN ssh-keyscan -t rsa gitlab.roqua.nl >> ~/.ssh/known_hosts
 RUN echo 'gem: --no-document' >> "$HOME/.gemrc"
 RUN gem install bundler --no-document
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update \
+    && mkdir -p /usr/share/man/man1 \
+    && mkdir -p /usr/share/man/man7 \ 
+    && apt-get install -y \
     dirmngr \
     docker-ce \
     chromedriver \
@@ -58,7 +60,6 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libfontconfig1 \
     libfontconfig1-dev \
-    mysql-client \
     postgresql-client
 
 # Phantom JS
