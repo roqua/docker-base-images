@@ -45,7 +45,7 @@ RUN ssh-keyscan -t rsa gitlab.com >> ~/.ssh/known_hosts
 RUN ssh-keyscan -t rsa gitlab.roqua.nl >> ~/.ssh/known_hosts
 
 RUN echo 'gem: --no-document' >> "$HOME/.gemrc"
-RUN gem install bundler --no-document
+RUN gem update --system --no-document
 
 RUN apt-get update \
     && mkdir -p /usr/share/man/man1 \
