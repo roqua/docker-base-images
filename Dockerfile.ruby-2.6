@@ -5,12 +5,14 @@ FROM ruby:2.6-alpine
 ENV LANG C.UTF-8
 
 # Add Alpine packages
+# less for pry pager
 RUN apk add --update --no-cache \
     bash \
+    curl \
     file \
+    less \
     postgresql-client \
-    tzdata \
-    curl
+    tzdata
 
 RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
  && gem update --system
