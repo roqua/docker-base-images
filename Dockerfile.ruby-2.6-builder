@@ -8,6 +8,7 @@ RUN apk add --update --no-cache \
     bash \
     build-base \
     git \
+    less \
     nodejs \
     postgresql-dev \
     tzdata \
