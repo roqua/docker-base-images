@@ -25,11 +25,15 @@ elixir-1.5 test: *test_build
 ruby-2.5 test: *test_build
 ruby-2.6-builder test: *test_build
 ruby-2.7-builder test: *test_build
+ruby-2.7-builder-slim test: *test_build
 ruby-2.6 test: *test_build
 ruby-2.7 test: *test_build
+ruby-2.7-slim test: *test_build
 elixir-1.5: *build_and_deploy
 ruby-2.5: *build_and_deploy
 ruby-2.6-builder: *build_and_deploy
 ruby-2.6: *build_and_deploy
 ruby-2.7-builder: *build_and_deploy
 ruby-2.7: *build_and_deploy
+ruby-2.7-builder-slim: *build_and_deploy
+ruby-2.7-slim: *build_and_deploy
