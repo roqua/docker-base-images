@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
 RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
  && gem update --system
 
-RUN cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+RUN ln -fs /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime \
+ && dpkg-reconfigure -f noninteractive tzdata
 
 # Add user
 RUN addgroup -gid 1000 --system app \
