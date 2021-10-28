@@ -4,6 +4,8 @@ FROM ruby:2.7-alpine
 
 ENV LANG C.UTF-8
 
+# libucontext-dev because since 2021-10-28 all kinds of gems don't install anymore.
+#   with `cannot find -lucontext` error  from  musl ld.
 RUN apk add --update --no-cache \
     bash \
     build-base \
@@ -12,7 +14,8 @@ RUN apk add --update --no-cache \
     nodejs \
     postgresql-dev \
     tzdata \
-    yarn
+    yarn \
+    libucontext-dev
 
 RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
  && gem update --system
