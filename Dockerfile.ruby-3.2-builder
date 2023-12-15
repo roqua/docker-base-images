@@ -1,6 +1,9 @@
 # Used for the builder stages of multi-stage docker builds.
 # So feel free to add anything that is useful here.
-FROM ruby:3.2-alpine
+
+# Issue with sqlite3 on alpine 3.19, fixed to 3.18 for now:
+# https://github.com/sparklemotion/sqlite3-ruby/issues/434
+FROM ruby:3.2-alpine3.18
 
 ENV LANG C.UTF-8
 
