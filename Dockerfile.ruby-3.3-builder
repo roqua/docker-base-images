@@ -1,0 +1,23 @@
+# Used for the builder stages of multi-stage docker builds.
+# So feel free to add anything that is useful here.
+
+FROM ruby:3.3-alpine3.19
+
+ENV LANG C.UTF-8
+
+RUN apk add --update --no-cache \
+    bash \
+    build-base \
+    git \
+    less \
+    nodejs \
+    postgresql-dev \
+    tzdata \
+    yarn
+
+RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
+ && gem update --system
+
+RUN cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+
+WORKDIR /app
