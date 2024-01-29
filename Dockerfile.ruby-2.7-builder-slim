@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -y curl \
 # apt gives use 0.32!, so let get a v1 via npm.
 RUN npm install --global yarn
 
-RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
- && gem update --system
+RUN echo 'gem: --no-document' >> "$HOME/.gemrc"
 
 RUN ln -fs /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime \
  && dpkg-reconfigure -f noninteractive tzdata
