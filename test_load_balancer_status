@@ -1,3 +1,0 @@
-#!/bin/sh
-
-curl -H "X-Forwarded-Proto: https" -s http://$WEB_HOST:$WEB_PORT/load_balancer_status | grep '^{"status":\s*"ok",\s*"member":\s*true}$'
