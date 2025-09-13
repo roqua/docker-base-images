@@ -1,11 +1,10 @@
 # Used for the builder stages of multi-stage docker builds.
 # So feel free to add anything that is useful here.
-FROM ruby:3.0-alpine
+
+FROM ruby:3.4-alpine
 
 ENV LANG=C.UTF-8
 
-# libucontext-dev because since 2021-10-28 all kinds of gems don't install anymore.
-#   with `cannot find -lucontext` error  from  musl ld.
 RUN apk add --update --no-cache \
     bash \
     build-base \
@@ -14,8 +13,7 @@ RUN apk add --update --no-cache \
     nodejs \
     postgresql-dev \
     tzdata \
-    yarn \
-    libucontext-dev
+    yarn
 
 RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
  && gem update --system

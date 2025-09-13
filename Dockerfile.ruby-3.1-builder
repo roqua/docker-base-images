@@ -2,7 +2,7 @@
 # So feel free to add anything that is useful here.
 FROM ruby:3.1-alpine
 
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
 # libucontext-dev because since 2021-10-28 all kinds of gems don't install anymore.
 #   with `cannot find -lucontext` error  from  musl ld.

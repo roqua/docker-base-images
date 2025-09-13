@@ -5,7 +5,7 @@
 # https://github.com/sparklemotion/sqlite3-ruby/issues/434
 FROM ruby:3.2-alpine3.18
 
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
 # libucontext-dev because since 2021-10-28 all kinds of gems don't install anymore.
 #   with `cannot find -lucontext` error  from  musl ld.
