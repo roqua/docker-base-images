@@ -17,8 +17,7 @@ RUN apk add --update --no-cache \
     yarn \
     libucontext-dev
 
-RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
- && gem update --system
+RUN echo 'gem: --no-document' >> "$HOME/.gemrc"
 
 RUN cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 
