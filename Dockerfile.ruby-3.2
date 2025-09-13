@@ -5,7 +5,7 @@
 # https://github.com/sparklemotion/sqlite3-ruby/issues/434
 FROM ruby:3.2-alpine3.18
 
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
 # Add Alpine packages
 # less for pry pager
@@ -30,6 +30,6 @@ WORKDIR /app
 
 RUN chown app:app .
 
-ENV EXECJS_RUNTIME Disabled
+ENV EXECJS_RUNTIME=Disabled
 
 USER app

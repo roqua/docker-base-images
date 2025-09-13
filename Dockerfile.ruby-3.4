@@ -1,6 +1,7 @@
 # Used for final stages of multi-stage builds.
 # Do not add build tools!
-FROM ruby:2.7-alpine
+
+FROM ruby:3.4-alpine
 
 ENV LANG=C.UTF-8
 
@@ -14,7 +15,8 @@ RUN apk add --update --no-cache \
     postgresql-client \
     tzdata
 
-RUN echo 'gem: --no-document' >> "$HOME/.gemrc"
+RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
+ && gem update --system
 
 RUN cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 
