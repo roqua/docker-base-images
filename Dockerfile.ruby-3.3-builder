@@ -15,8 +15,7 @@ RUN apk add --update --no-cache \
     tzdata \
     yarn
 
-RUN echo 'gem: --no-document' >> "$HOME/.gemrc" \
- && gem update --system
+RUN echo 'gem: --no-document' >> "$HOME/.gemrc"
 
 RUN cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 
