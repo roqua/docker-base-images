@@ -10,6 +10,7 @@ RUN apk add --update --no-cache \
     build-base \
     git \
     less \
+    yaml-dev \
     nodejs \
     postgresql-dev \
     tzdata \

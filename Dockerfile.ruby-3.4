@@ -7,11 +7,13 @@ ENV LANG=C.UTF-8
 
 # Add Alpine packages
 # less for pry pager
+# yaml-dev for pysch, needed for irb
 RUN apk add --update --no-cache \
     bash \
     curl \
     file \
     less \
+    yaml-dev \
     postgresql-client \
     tzdata
 
