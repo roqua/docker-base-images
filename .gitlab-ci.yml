@@ -33,6 +33,8 @@ ruby-3.3-builder test: *test_build
 ruby-3.3 test: *test_build
 ruby-3.4-builder test: *test_build
 ruby-3.4 test: *test_build
+ruby-4.0-builder test: *test_build
+ruby-4.0 test: *test_build
 
 ruby-2.7-builder: *build_and_deploy
 ruby-2.7: *build_and_deploy
@@ -46,3 +48,5 @@ ruby-3.3-builder: *build_and_deploy
 ruby-3.3: *build_and_deploy
 ruby-3.4-builder: *build_and_deploy
 ruby-3.4: *build_and_deploy
+ruby-4.0-builder: *build_and_deploy
+ruby-4.0: *build_and_deploy
