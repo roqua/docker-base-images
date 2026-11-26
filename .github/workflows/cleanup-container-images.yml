@@ -1,0 +1,35 @@
+name: Cleanup old container images
+
+on:
+  schedule:
+    # Daily. The action caches registry manifests via actions/cache,
+    # and that cache is evicted after 7 days without a read,
+    # so keep the interval well under a week.
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Only log what would be deleted"
+        type: boolean
+        default: true
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+
+    # The action is not safe to run twice against the same package.
+    concurrency:
+      group: cleanup-container-images
+
+    steps:
+      - uses: dataaxiom/ghcr-cleanup-action@d52806a0dc70b430571a37da1fde39733ffd640f # v1.2.2
+        with:
+          packages: ruby
+          older-than: 1 weeks
+          # only 3.4 and 3.4-builder images need to be kept
+          delete-tags: "sha256*"
+          delete-untagged: true
+          dry-run: ${{ inputs.dry-run || false }}
